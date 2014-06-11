@@ -13,4 +13,4 @@ ID=$1
 PORT=$2
 HOST_IP=$3
 
-docker run -p $PORT:$PORT --link zkserver:zk -e BROKER_ID=$ID -e HOST_IP=$HOST_IP -e PORT=$PORT -d stealthly/docker-kafka
+docker run --name=broker$ID -p $PORT:$PORT --link zkserver:zk -e BROKER_ID=$ID -e HOST_IP=$HOST_IP -e PORT=$PORT -d stealthly/docker-kafka
